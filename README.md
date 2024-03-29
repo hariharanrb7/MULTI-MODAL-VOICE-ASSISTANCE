@@ -53,7 +53,7 @@
    
    *With its intuitive interface and advanced AI capabilities, the Multi-Modal Voice Assistant App aims to streamline tasks and provide valuable assistance to users in various domains, from content analysis to health monitoring.*
 
-3. **Libraries Used:**
+2. **Libraries Used:**
    
    - **Streamlit:** *A Python library for building interactive web applications with simple Python scripts, facilitating seamless user interaction.*
    - **Requests:** *A library for making HTTP requests, enabling communication with external APIs for data retrieval.*
@@ -67,27 +67,27 @@
    - **YouTube Transcript API:** *An API for retrieving transcripts of YouTube videos, enabling analysis of video content.*
    - **dotenv:** *A library for loading environment variables from a .env file into the application's environment.*
    
-4. **Features:**
+3. **Features:**
 
-**Voice and Text Interaction**: Users can communicate with the assistant via voice or text commands.
+-  **Voice and Text Interaction**: Users can communicate with the assistant via voice or text commands.
 
-**Image Analysis**: Upload images for object identification and analysis.
+-  **Image Analysis**: Upload images for object identification and analysis.
 
-**Video Summarization**: Summarize the content of uploaded videos quickly.
+-  **Video Summarization**: Summarize the content of uploaded videos quickly.
 
-**YouTube Transcription**: Transcribe YouTube video content for easy reference.
+-  **YouTube Transcription**: Transcribe YouTube video content for easy reference.
 
-**PDF Reading**: Upload PDF documents and ask questions about the content.
+-  **PDF Reading**: Upload PDF documents and ask questions about the content.
 
-**Health Advisor**: Analyze food images to calculate total calories and provide nutritional details.
+-  **Health Advisor**: Analyze food images to calculate total calories and provide nutritional details.
 
-**Natural Language Processing**: Understand and respond to user queries effectively.
+-  **Natural Language Processing**: Understand and respond to user queries effectively.
 
-**Interactive Web Interface**: Access all features through an intuitive web application.
+-  **Interactive Web Interface**: Access all features through an intuitive web application.
 
 These features aim to simplify tasks and provide valuable assistance across various domains, including content analysis, video processing, document parsing, and health monitoring.
 
-5. **User Interface:**
+4. **User Interface:**
 
    - *The application interface, built using Streamlit, offers a user-friendly environment for interacting with the Multimodal Health Assistant.*
    - *Users can input queries, upload food images, or provide video links through the intuitive interface.*
