@@ -45,7 +45,13 @@
 
 1. **Introduction:**
 
-   *The Multimodal Voice Assistant project is designed to serve as an efficient and personalized Experience, integrating various modalities for user interaction, including text, voice,image,video,PDF's and YT link as inputs. The project utilizes cutting-edge technologies. By leveraging natural language understanding, image processing, and AI-powered text generation, the assistant offers tailored recommendations and insights.*
+   *Introducing the "Multi-Modal Voice Assistant App": a user-friendly tool designed to simplify daily tasks through voice and image interactions. With this app, users can communicate with the assistant by typing or speaking commands, making it accessible to all.
+
+    The app offers a range of features, including image analysis, video summarization, YouTube video transcription, PDF reading, and health advice. For instance, users can upload images to identify objects or upload videos for quick summaries. Additionally, they can transcribe YouTube videos or ask questions about PDF documents.
+
+   One notable feature is the Health Advisor, where users can upload images of food items to receive detailed nutritional information, including calorie counts and dietary recommendations.
+
+    With its intuitive interface and advanced AI capabilities, the Multi-Modal Voice Assistant App aims to streamline tasks and provide valuable assistance to users in various domains, from content analysis to health monitoring.*
 
 2. **Libraries Used:**
    
