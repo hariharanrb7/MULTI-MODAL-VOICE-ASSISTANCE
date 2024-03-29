@@ -47,13 +47,13 @@
 
    *Introducing the "Multi-Modal Voice Assistant App": a user-friendly tool designed to simplify daily tasks through voice and image interactions. With this app, users can communicate with the assistant by typing or speaking commands, making it accessible to all.*
 
-    *The app offers a range of features, including image analysis, video summarization, YouTube video transcription, PDF reading, and health advice. For instance, users can upload images to identify objects or upload videos for quick summaries. Additionally, they can transcribe YouTube videos or ask questions about PDF documents.*
+   *The app offers a range of features, including image analysis, video summarization, YouTube video transcription, PDF reading, and health advice. For instance, users can upload images to identify objects or upload videos for quick summaries. Additionally, they can transcribe YouTube videos or ask questions about PDF documents.*
 
    *One notable feature is the Health Advisor, where users can upload images of food items to receive detailed nutritional information, including calorie counts and dietary recommendations.*
+   
+   *With its intuitive interface and advanced AI capabilities, the Multi-Modal Voice Assistant App aims to streamline tasks and provide valuable assistance to users in various domains, from content analysis to health monitoring.*
 
-   * With its intuitive interface and advanced AI capabilities, the Multi-Modal Voice Assistant App aims to streamline tasks and provide valuable assistance to users in various domains, from content analysis to health monitoring.*
-
-2. **Libraries Used:**
+3. **Libraries Used:**
    
    - **Streamlit:** *A Python library for building interactive web applications with simple Python scripts, facilitating seamless user interaction.*
    - **Requests:** *A library for making HTTP requests, enabling communication with external APIs for data retrieval.*
@@ -67,7 +67,7 @@
    - **YouTube Transcript API:** *An API for retrieving transcripts of YouTube videos, enabling analysis of video content.*
    - **dotenv:** *A library for loading environment variables from a .env file into the application's environment.*
    
-3. **Features:**
+4. **Features:**
 
    - **Multimodal Input Processing:** *The assistant accepts inputs through text, voice, and image modalities, providing users with flexibility and convenience in interaction.*
    - **Nutritional Analysis:** *Leveraging Google Generative AI, the assistant analyzes uploaded food images to determine nutritional content and provide detailed calorie breakdowns.*
@@ -75,12 +75,12 @@
    - **Voice Interaction:** *Utilizing speech recognition and text-to-speech conversion, the assistant supports voice-based interaction, enhancing accessibility and user experience.*
    - **Document and Video Analysis:** *The assistant can analyze text documents and video transcripts, extracting relevant information and providing summarized insights.*
    
-4. **User Interface:**
+5. **User Interface:**
 
    - *The application interface, built using Streamlit, offers a user-friendly environment for interacting with the Multimodal Health Assistant.*
    - *Users can input queries, upload food images, or provide video links through the intuitive interface.*
    - *Real-time feedback and responses are displayed to users, ensuring seamless communication and engagement.*
    
-5. **Conclusion:**
+6. **Conclusion:**
 
    The Multimodal Voice Assistant project represents a significant advancement in leveraging technology. By integrating multimodal input processing, AI-driven analysis, and personalized recommendations.
