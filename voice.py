@@ -1,3 +1,7 @@
+#Save the below code with filename 'main.py'
+#Run in your terminal
+#While running in, enter the command "streamlit run main.py" in your terminal to open the web app in localhost
+
 from dotenv import load_dotenv
 load_dotenv() ##load all the environment variables
 
