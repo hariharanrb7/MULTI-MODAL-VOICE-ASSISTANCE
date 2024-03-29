@@ -95,6 +95,6 @@ These features aim to simplify tasks and provide valuable assistance across vari
 
    - *The UI also incorporates interactive elements like buttons for starting voice input, analyzing uploaded content, and generating responses. Feedback messages inform users of processing status and any errors encountered, enhancing usability. Overall, the UI offers a seamless experience for interacting with the assistant's diverse functionalities.*
    
-6. **Conclusion:**
+6. **Conclusion:**   
 
-   The Multimodal Voice Assistant project represents a significant advancement in leveraging technology. By integrating multimodal input processing, AI-driven analysis, and personalized recommendations.
+   *In conclusion, the Multi-Modal Voice Assistant App offers a versatile and user-friendly solution for various tasks. By integrating advanced AI capabilities, it simplifies interactions through voice and image inputs, provides insightful summaries of content, and offers valuable assistance in areas like video transcription, document analysis, and health monitoring. With its intuitive interface and robust features, the app aims to enhance productivity and convenience for users across different domains.*
