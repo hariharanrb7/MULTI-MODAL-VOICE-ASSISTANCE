@@ -315,9 +315,9 @@ if PDF_reader:
 with st.sidebar:
     health_advisor = st.checkbox("Enable Health Advisor",value = True)
 if health_advisor:
-    def get_gemini_repsonse(input,image,prompt):
+    def get_gemini_repsonse(prompt,image):
         model=genai.GenerativeModel('gemini-pro-vision')
-        response=model.generate_content([input,image[0],prompt])
+        response=model.generate_content([prompt,image[0]])
         return response.text
 
     def input_image_setup(uploaded_file):
@@ -339,7 +339,6 @@ if health_advisor:
     ##initialize our streamlit app
 
     st.header("Health Advisor")
-    input=st.text_input("Input Prompt (if you need to mention anything specifically): ",key="input")
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
     image=""   
     if uploaded_file is not None:
@@ -370,7 +369,7 @@ if health_advisor:
 
     if submit:
         image_data=input_image_setup(uploaded_file)
-        response=get_gemini_repsonse(input_prompt,image_data,input)
+        response=get_gemini_repsonse(input_prompt,image_data)
         st.subheader("Your Food Contains")
         st.write(response)
         text_to_speech(response)
