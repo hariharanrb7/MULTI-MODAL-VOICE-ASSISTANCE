@@ -69,12 +69,24 @@
    
 4. **Features:**
 
-   - **Multimodal Input Processing:** *The assistant accepts inputs through text, voice, and image modalities, providing users with flexibility and convenience in interaction.*
-   - **Nutritional Analysis:** *Leveraging Google Generative AI, the assistant analyzes uploaded food images to determine nutritional content and provide detailed calorie breakdowns.*
-   - **Personalized Recommendations:** *Based on the nutritional analysis, the assistant offers personalized recommendations and insights to users, promoting healthy eating habits.*
-   - **Voice Interaction:** *Utilizing speech recognition and text-to-speech conversion, the assistant supports voice-based interaction, enhancing accessibility and user experience.*
-   - **Document and Video Analysis:** *The assistant can analyze text documents and video transcripts, extracting relevant information and providing summarized insights.*
-   
+**Voice and Text Interaction**: Users can communicate with the assistant via voice or text commands.
+
+**Image Analysis**: Upload images for object identification and analysis.
+
+**Video Summarization**: Summarize the content of uploaded videos quickly.
+
+**YouTube Transcription**: Transcribe YouTube video content for easy reference.
+
+**PDF Reading**: Upload PDF documents and ask questions about the content.
+
+**Health Advisor**: Analyze food images to calculate total calories and provide nutritional details.
+
+**Natural Language Processing**: Understand and respond to user queries effectively.
+
+**Interactive Web Interface**: Access all features through an intuitive web application.
+
+These features aim to simplify tasks and provide valuable assistance across various domains, including content analysis, video processing, document parsing, and health monitoring.
+
 5. **User Interface:**
 
    - *The application interface, built using Streamlit, offers a user-friendly environment for interacting with the Multimodal Health Assistant.*
