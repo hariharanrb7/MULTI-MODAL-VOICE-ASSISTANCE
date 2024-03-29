@@ -31,7 +31,7 @@
   </tr>
   <tr>
     <td>Kamalesh.K</td>
-    <td>hariharan.2023vitstudent.ac.in</td>
+    <td>kamalesh.k2023vitstudent.ac.in</td>
     <td>MSc Data Science, 1styear</td>
     <td>80153 29920</td>
   </tr>
