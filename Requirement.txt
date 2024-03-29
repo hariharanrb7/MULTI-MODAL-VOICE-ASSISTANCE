@@ -1,0 +1,16 @@
+streamlit
+requests
+os
+google.generativeai
+speech_recognition 
+pyttsx3
+moviepy.editor
+PyPDF2
+langchain.text_splitter
+langchain_google_genai
+langchain.vectorstores
+langchain_google_genai
+langchain.chains.question_answering
+langchain.prompts
+PIL 
+youtube_transcript_api
