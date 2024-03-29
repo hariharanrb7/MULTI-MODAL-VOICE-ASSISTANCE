@@ -69,21 +69,21 @@
    
 3. **Features:**
 
--  **Voice and Text Interaction**: Users can communicate with the assistant via voice or text commands.
+    - **Voice and Text Interaction**: Users can communicate with the assistant via voice or text commands.
 
--  **Image Analysis**: Upload images for object identification and analysis.
+    -  **Image Analysis**: Upload images for object identification and analysis.
 
--  **Video Summarization**: Summarize the content of uploaded videos quickly.
+    -  **Video Summarization**: Summarize the content of uploaded videos quickly.
 
--  **YouTube Transcription**: Transcribe YouTube video content for easy reference.
+    -  **YouTube Transcription**: Transcribe YouTube video content for easy reference.
 
--  **PDF Reading**: Upload PDF documents and ask questions about the content.
+    -  **PDF Reading**: Upload PDF documents and ask questions about the content.
 
--  **Health Advisor**: Analyze food images to calculate total calories and provide nutritional details.
+    -  **Health Advisor**: Analyze food images to calculate total calories and provide nutritional details.
 
--  **Natural Language Processing**: Understand and respond to user queries effectively.
+    -  **Natural Language Processing**: Understand and respond to user queries effectively.
 
--  **Interactive Web Interface**: Access all features through an intuitive web application.
+    -  **Interactive Web Interface**: Access all features through an intuitive web application.
 
 These features aim to simplify tasks and provide valuable assistance across various domains, including content analysis, video processing, document parsing, and health monitoring.
 
