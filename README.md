@@ -77,4 +77,4 @@
    
 5. **Conclusion:**
 
-   *The Multimodal Voice Assistant project represents a significant advancement in leveraging technology. By integrating multimodal input processing, AI-driven analysis, and personalized recommendations.
+   The Multimodal Voice Assistant project represents a significant advancement in leveraging technology. By integrating multimodal input processing, AI-driven analysis, and personalized recommendations.
