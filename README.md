@@ -91,9 +91,9 @@ These features aim to simplify tasks and provide valuable assistance across vari
 
    - *The User Interface (UI) of the Multi-Modal Voice Assistant App is designed for simplicity and ease of use. It features a clean and intuitive layout accessible through a web browser. Users are greeted with a title indicating the app's purpose and checkboxes to enable or disable specific functionalities like voice mode, video summarization, YouTube transcription, PDF reading, and health advice.*
 
-   -*Input options include text fields for typing queries or prompts and file uploaders for images, videos, and PDF documents. Users can choose to enable voice mode for speech-to-text input. Upon submitting a query or uploading a file, the UI displays user input and provides responses from the assistant in a clear and organized manner. Visual elements such as images and summary text are presented prominently, ensuring easy comprehension.*
+   - *Input options include text fields for typing queries or prompts and file uploaders for images, videos, and PDF documents. Users can choose to enable voice mode for speech-to-text input. Upon submitting a query or uploading a file, the UI displays user input and provides responses from the assistant in a clear and organized manner. Visual elements such as images and summary text are presented prominently, ensuring easy comprehension.*
 
-   -*The UI also incorporates interactive elements like buttons for starting voice input, analyzing uploaded content, and generating responses. Feedback messages inform users of processing status and any errors encountered, enhancing usability. Overall, the UI offers a seamless experience for interacting with the assistant's diverse functionalities.*
+   - *The UI also incorporates interactive elements like buttons for starting voice input, analyzing uploaded content, and generating responses. Feedback messages inform users of processing status and any errors encountered, enhancing usability. Overall, the UI offers a seamless experience for interacting with the assistant's diverse functionalities.*
    
 6. **Conclusion:**
 
