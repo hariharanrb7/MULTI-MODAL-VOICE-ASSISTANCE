@@ -69,8 +69,8 @@ def text_to_speech(text):
 input_prompt = """You are an expert in everything and an 
 excellent Personal Assistant where you also need to 
 analyse the image or question asked by me  
-and response in more relevantly,formally,in short manner, Maintaining context while responding, 
-without stating how you requested to respond and don't use symbols like bullet points """
+and response in more relevantly,formally,in short manner with 200 words or less, Maintaining context while responding, 
+don't use symbols like bullet points """
 
 
 ## webapp using streamlit  
@@ -129,6 +129,88 @@ if submit:
 
 elif uploaded_file is not None and (prompt or voice_mode) is not None: # if nothing is not submitted
   st.warning("Please type, say or upload anything")
+
+### PDF READER
+with st.sidebar:
+    PDF_reader = st.checkbox("Enable PDF Reader",value = True)
+if PDF_reader:
+    #defining for Functions for PDF
+    def get_pdf_text(pdf_docs):
+        text=""
+        for pdf in pdf_docs:
+            pdf_reader= PdfReader(pdf)
+            for page in pdf_reader.pages:
+                text+= page.extract_text()
+        return  text
+
+
+ #defining function that break down large text documents into pieces
+    def get_text_chunks(text):
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size=10000, chunk_overlap=1000)
+        chunks = text_splitter.split_text(text)
+        return chunks
+#defining function to process text chunks, generates embeddings, and creates a vector store for efficient similarity search.
+    def get_vector_store(text_chunks):
+        embeddings = GoogleGenerativeAIEmbeddings(model = "models/embedding-001")
+        vector_store = FAISS.from_texts(text_chunks, embedding=embeddings)
+        vector_store.save_local("faiss_index")
+
+# defining model for PDF reader
+    def get_conversational_chain():
+        prompt_template = """
+        Answer the question as detailed as possible from the provided context, make sure to provide all the details, if the answer is not in
+        provided context just say, "answer is not available in the context", don't provide the wrong answer\n\n
+        Context:\n {context}?\n
+        Question: \n{question}\n
+
+        Answer:
+        """
+
+        model = ChatGoogleGenerativeAI(model="gemini-pro",
+                                temperature=0.3)
+
+        prompt = PromptTemplate(template = prompt_template, input_variables = ["context", "question"])
+        chain = load_qa_chain(model, chain_type="stuff", prompt=prompt)
+
+        return chain
+
+#defining function that search user question within the pdf uploaded and response
+    def user_input(user_question):
+        embeddings = GoogleGenerativeAIEmbeddings(model = "models/embedding-001")
+        
+        new_db = FAISS.load_local("faiss_index", embeddings)
+        docs = new_db.similarity_search(user_question)
+
+        chain = get_conversational_chain()
+
+        
+        response = chain(
+            {"input_documents":docs, "question": user_question}
+            , return_only_outputs=True)
+
+        print(response)
+        st.write("Reply: ", response["output_text"])
+        text_to_speech(response["output_text"])
+    ###
+     #defining webapp for PDF reader
+    def main():
+        st.header("Multiple PDF Reader")
+        st.markdown("##### Upload Multiple PDFs and Ask Questions")
+        pdf_docs = st.file_uploader("Upload your PDF Files and Click on the Submit & Process Button", accept_multiple_files=True,help="Please uplaod the pdf")
+        if st.button("Submit & Process"):
+         with st.spinner("Processing..."):
+            raw_text = get_pdf_text(pdf_docs)
+            text_chunks = get_text_chunks(raw_text)
+            get_vector_store(text_chunks)
+            st.success("Done")
+        user_question = st.text_input("Ask a Question from the PDF Files")
+
+        if user_question:
+            user_input(user_question) #text input to ask question
+
+
+    if __name__ == "__main__":
+        main()
 
 ### Video Analyser 
 with st.sidebar:
@@ -228,88 +310,6 @@ if yt_transcript:  # if YT transcriber is enabled
             st.write(summary)         #getting response
             text_to_speech(summary) #response in voice mode
 
-
-### PDF READER
-with st.sidebar:
-    PDF_reader = st.checkbox("Enable PDF Reader",value = True)
-if PDF_reader:
-    #defining for Functions for PDF
-    def get_pdf_text(pdf_docs):
-        text=""
-        for pdf in pdf_docs:
-            pdf_reader= PdfReader(pdf)
-            for page in pdf_reader.pages:
-                text+= page.extract_text()
-        return  text
-
-
- #defining function that break down large text documents into pieces
-    def get_text_chunks(text):
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=10000, chunk_overlap=1000)
-        chunks = text_splitter.split_text(text)
-        return chunks
-#defining function to process text chunks, generates embeddings, and creates a vector store for efficient similarity search.
-    def get_vector_store(text_chunks):
-        embeddings = GoogleGenerativeAIEmbeddings(model = "models/embedding-001")
-        vector_store = FAISS.from_texts(text_chunks, embedding=embeddings)
-        vector_store.save_local("faiss_index")
-
-# defining model for PDF reader
-    def get_conversational_chain():
-        prompt_template = """
-        Answer the question as detailed as possible from the provided context, make sure to provide all the details, if the answer is not in
-        provided context just say, "answer is not available in the context", don't provide the wrong answer\n\n
-        Context:\n {context}?\n
-        Question: \n{question}\n
-
-        Answer:
-        """
-
-        model = ChatGoogleGenerativeAI(model="gemini-pro",
-                                temperature=0.3)
-
-        prompt = PromptTemplate(template = prompt_template, input_variables = ["context", "question"])
-        chain = load_qa_chain(model, chain_type="stuff", prompt=prompt)
-
-        return chain
-
-#defining function that search user question within the pdf uploaded and response
-    def user_input(user_question):
-        embeddings = GoogleGenerativeAIEmbeddings(model = "models/embedding-001")
-        
-        new_db = FAISS.load_local("faiss_index", embeddings)
-        docs = new_db.similarity_search(user_question)
-
-        chain = get_conversational_chain()
-
-        
-        response = chain(
-            {"input_documents":docs, "question": user_question}
-            , return_only_outputs=True)
-
-        print(response)
-        st.write("Reply: ", response["output_text"])
-        text_to_speech(response["output_text"])
-    ###
-     #defining webapp for PDF reader
-    def main():
-        st.header("Multiple PDF Reader")
-        st.markdown("##### Upload Multiple PDFs and Ask Questions")
-        pdf_docs = st.file_uploader("Upload your PDF Files and Click on the Submit & Process Button", accept_multiple_files=True,help="Please uplaod the pdf")
-        if st.button("Submit & Process"):
-         with st.spinner("Processing..."):
-            raw_text = get_pdf_text(pdf_docs)
-            text_chunks = get_text_chunks(raw_text)
-            get_vector_store(text_chunks)
-            st.success("Done")
-        user_question = st.text_input("Ask a Question from the PDF Files")
-
-        if user_question:
-            user_input(user_question) #text input to ask question
-
-
-    if __name__ == "__main__":
-        main()
 
 ### HEALTH ADVISOR
 with st.sidebar:
