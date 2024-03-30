@@ -69,8 +69,8 @@ def text_to_speech(text):
 input_prompt = """You are an expert in everything and an 
 excellent Personal Assistant where you also need to 
 analyse the image or question asked by me  
-and response in more relevantly,formally,in short manner with 200 words or less, Maintaining context while responding, 
-don't use symbols like bullet points """
+and response in more relevantly,formally,in short manner within 50 words or less, Maintaining context while responding, 
+don't use symbols like bullet points, asterics etc., like below format """
 
 
 ## webapp using streamlit  
@@ -85,12 +85,6 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded Image.", use_column_width=True)
 
-
-submit=st.button("Submit") #create a button to submit the query or command
-
-if prompt: #check if the prompt is not empty
-   st.write(f"You: {prompt}") #display the prompt as the user's message
- 
 #check if voice mode is enabled
 if voice_mode: #create a button to start listening to the user's voice
     if st.button("Start Listening"): #initialize the speech recognizer
@@ -109,6 +103,13 @@ if voice_mode: #create a button to start listening to the user's voice
            text_to_speech(response) 
         except:
            st.error("Sorry, I could not understand your voice. Please try again.") #display an error message
+
+submit=st.button("Submit") #create a button to submit the query or command
+
+if prompt: #check if the prompt is not empty
+   st.write(f"You: {prompt}") #display the prompt as the user's message
+ 
+
 
 if submit:
   if uploaded_file is None and (prompt or voice_mode) is not None:  #if text or voice is submitted
@@ -250,15 +251,18 @@ if video_summarizer:
     if uploaded_video is not None: # if video uploaded
         audio_file = process_video(uploaded_video) 
         st.success("Video uploaded and processed successfully!")
-
-        if st.button("Analyze"): #creating button to analysis and if it is pressed
-            audio_text = transcribe_audio(audio_file)
-            
+        speak_mode = st.button("Through speak mode") 
+        if st.button("Analyze and get summary"): #creating button to analysis and if it is pressed
+            audio_text = transcribe_audio(audio_file)    
+            response = get_gemini_repsonse(input_prompt1 + audio_text) #getting response
+            st.markdown("## Video Analysis Summary:")
+            st.write(response)
+        if speak_mode:
+            audio_text = transcribe_audio(audio_file)    
             response = get_gemini_repsonse(input_prompt1 + audio_text) #getting response
             st.markdown("## Video Analysis Summary:")
             st.write(response)
             text_to_speech(response) #response in voice mode
-
     
 ### YT Transcriber
 with st.sidebar:
@@ -266,7 +270,7 @@ with st.sidebar:
 if yt_transcript:  # if YT transcriber is enabled
     prompt_for_YT_Videos="""You are Yotube video summarizer. You will be taking the transcript text
     and summarizing the entire video and providing the important summary in points 
-    within 250 words. Please provide the summary of the text given here:  """             #prompt
+    within 250 words without using symbols like asterics, bullet points etc., Please provide the summary of the text given here:  """             #prompt
 
 
     ## getting the transcript data from yt videos
@@ -300,16 +304,23 @@ if yt_transcript:  # if YT transcriber is enabled
         video_id = youtube_link.split("=")[1]
         print(video_id)
         st.image(f"http://img.youtube.com/vi/{video_id}/0.jpg", use_column_width=True) #showing the thumbnail of the video link provided
-
+    speak_mode1 = st.button("Get summary in speak mode") 
     if st.button("Get Summary"):
         transcript_text=extract_transcript_details(youtube_link)  #getting response
 
         if transcript_text:
-            summary=generate_gemini_content(transcript_text,prompt_for_YT_Videos)
+            summary=generate_gemini_content(transcript_text,prompt_for_YT_Videos)#getting response
             st.markdown("## Detailed Notes:")
-            st.write(summary)         #getting response
+            st.write(summary)       
+    if speak_mode1:
+        transcript_text=extract_transcript_details(youtube_link)  #getting response
+        if transcript_text:
+            summary=generate_gemini_content(transcript_text,prompt_for_YT_Videos)#getting response
+            st.markdown("## Detailed Notes:")
+            st.write(summary)
             text_to_speech(summary) #response in voice mode
-
+                
+            
 
 ### HEALTH ADVISOR
 with st.sidebar:
