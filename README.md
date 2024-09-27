@@ -36,7 +36,7 @@
     <td>80153 29920</td>
   </tr>
 </table>
-![Winning-Certificate](https://github.com/hariharanrb7/MULTI-MODAL-VOICE-ASSISTANCE/blob/7e3f6d2f3aeccbe36e8507ae01460091fed38f9d/Samsung%20PRISM%20certificate.pdf)
+![Winning-Certificate][https://github.com/hariharanrb7/MULTI-MODAL-VOICE-ASSISTANCE/blob/7e3f6d2f3aeccbe36e8507ae01460091fed38f9d/Samsung%20PRISM%20certificate.pdf]
 
 ## Implementation 🛠️
 
